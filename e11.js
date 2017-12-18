@@ -3,20 +3,20 @@
 function all(promise1, promise2) {
     return new Promise(function (resolve, reject) {
         var counter = 0,
-            vals = [];
+            values = [];
 
         function shipItBack() {
-            resolve(vals);
+            resolve(values);
         }
 
         function saveItSpot(i){
             return (val) => {
-                vals[i] = val;
+                values[i] = val;
                 counter += 1;
                 if (counter === 2) {
                     shipItBack();
                 }
-            }
+            };
         }
 
         //send out the first one
